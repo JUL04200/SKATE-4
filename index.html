@@ -1,747 +1,1044 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skate. — Guide Glitch & Exploits</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>SK. GLITCH HUB — Skate. Bible</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <!-- BACKGROUND PARTICLES -->
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="grid-canvas"></canvas>
+  <div id="scanlines"></div>
+  <div id="noise"></div>
 
-  <!-- NAV -->
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="pre-inner">
+      <div class="pre-logo">SK<span>.</span></div>
+      <div class="pre-bar"><div class="pre-fill"></div></div>
+      <div class="pre-text">INITIALISATION SYSTÈME...</div>
+    </div>
+  </div>
+
+  <!-- NAV HUD -->
   <nav id="navbar">
+    <div class="nav-corner tl"></div>
+    <div class="nav-corner tr"></div>
     <div class="nav-inner">
       <div class="nav-logo">
-        <span class="logo-sk">SK</span><span class="logo-dot">.</span>
-        <span class="logo-sub">GLITCH HUB</span>
+        <span class="nl-sk">SK</span><span class="nl-dot">.</span>
+        <div class="nav-logo-sub">
+          <span>GLITCH HUB</span>
+          <span class="nl-ver">v2.0 · S4</span>
+        </div>
       </div>
       <ul class="nav-links">
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#glitches">Glitchs</a></li>
-        <li><a href="#ai-assistant">IA</a></li>
-        <li><a href="#bugs">Bugs</a></li>
-        <li><a href="#glossaire">Glossaire</a></li>
+        <li><a href="#hero" data-hover="00">ACCUEIL</a></li>
+        <li><a href="#glitches" data-hover="01">EXPLOITS</a></li>
+        <li><a href="#ai-assistant" data-hover="02">IA</a></li>
+        <li><a href="#bugs" data-hover="03">BUGS</a></li>
+        <li><a href="#glossaire" data-hover="04">GLOSSAIRE</a></li>
       </ul>
-      <div class="nav-badge">PS Only</div>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span>LIVE · PS</span>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ===================== HERO ===================== -->
   <section id="hero">
+    <div class="hero-bg-text">SKATE</div>
+    <div class="hero-grid-overlay"></div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">Early Access · Season 4</p>
-      <h1 class="hero-title">GLITCH<br/><span class="hero-accent">BIBLE</span></h1>
-      <p class="hero-sub">Le guide ultime des exploits, glitchs et bugs de <strong>skate.</strong> — pour PlayStation.</p>
+      <div class="hero-tag glitch-text" data-text="EARLY ACCESS · SAISON 4 · PLAYSTATION">EARLY ACCESS · SAISON 4 · PLAYSTATION</div>
+
+      <h1 class="hero-title">
+        <span class="ht-line1 glitch-text" data-text="GLITCH">GLITCH</span>
+        <span class="ht-line2 glitch-text" data-text="BIBLE">BIBLE</span>
+      </h1>
+
+      <p class="hero-desc">Guide <span class="hi">ultime</span> des exploits, glitchs &amp; bugs de <span class="hi">skate.</span> — version PlayStation</p>
+
       <div class="hero-ctas">
-        <a href="#glitches" class="btn-primary">Explorer les glitchs</a>
-        <a href="#ai-assistant" class="btn-ghost">Demander à l'IA</a>
+        <a href="#glitches" class="cta-main">
+          <span class="cta-icon">⚡</span>
+          <span>Explorer les glitchs</span>
+          <div class="cta-border"></div>
+        </a>
+        <a href="#ai-assistant" class="cta-ghost">
+          <span>Assistant IA</span>
+          <svg viewBox="0 0 20 20" width="16"><path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-n">3</span><span class="stat-l">Exploits</span></div>
-        <div class="stat"><span class="stat-n">4</span><span class="stat-l">Bugs actifs</span></div>
-        <div class="stat"><span class="stat-n">0.30</span><span class="stat-l">Version</span></div>
+
+      <div class="hero-counters">
+        <div class="hc-item">
+          <div class="hc-num" data-target="3">0</div>
+          <div class="hc-label">EXPLOITS</div>
+        </div>
+        <div class="hc-sep"></div>
+        <div class="hc-item">
+          <div class="hc-num" data-target="4">0</div>
+          <div class="hc-label">BUGS ACTIFS</div>
+        </div>
+        <div class="hc-sep"></div>
+        <div class="hc-item">
+          <div class="hc-num" data-target="100">0</div>
+          <div class="hc-label">% PRÉCISION</div>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll">↓ Scroll</div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
   </section>
 
-  <!-- GLITCHES SECTION -->
+  <!-- ===================== GLITCHES ===================== -->
   <section id="glitches">
     <div class="section-header">
-      <span class="section-tag">EXPLOITS</span>
-      <h2>Les Glitchs Principaux</h2>
-      <p>Maîtrise chaque exploit pour dominer la map</p>
+      <div class="sh-line"></div>
+      <div class="sh-text">
+        <span class="sh-tag">/ / EXPLOITS</span>
+        <h2>LES GLITCHS</h2>
+        <p>Maîtrise chaque exploit — schémas interactifs inclus</p>
+      </div>
+      <div class="sh-line"></div>
     </div>
 
-    <!-- GLITCH 1 — SPREAD EAGLE -->
-    <article class="glitch-card featured" id="spread-eagle">
-      <div class="card-badge">⚡ META</div>
-      <div class="card-layout">
-        <div class="card-info">
-          <h3 class="card-title">Speed Glitch<br/><em>"Spread Eagle"</em></h3>
-          <p class="card-desc">
-            Le glitch de vitesse principal du jeu. Contrairement à Skate 3 où un seul boost suffisait,
-            dans <strong>skate.</strong> il faut <em>enchaîner le cycle en boucle</em> pour accumuler
-            la vitesse progressivement. Plus tu répètes, plus tu vas vite — sans limite apparente.
+    <!-- ====== CARD 1 : SPREAD EAGLE ====== -->
+    <div class="glitch-card" id="spread-eagle">
+      <div class="gc-glow red"></div>
+      <div class="gc-corner tl"></div><div class="gc-corner tr"></div>
+      <div class="gc-corner bl"></div><div class="gc-corner br"></div>
+
+      <div class="gc-header">
+        <div class="gc-badge red">⚡ META · SPEED</div>
+        <div class="gc-num">01</div>
+      </div>
+
+      <div class="gc-body">
+        <!-- LEFT -->
+        <div class="gc-left">
+          <h3 class="gc-title">Speed Glitch<br/><em class="red-text">"Spread Eagle"</em></h3>
+
+          <p class="gc-desc">
+            Principal exploit de vitesse de <strong>skate.</strong> — contrairement à Skate&nbsp;3 (boost one-shot),
+            ici la vitesse <em>s'accumule en boucle</em>. Chaque cycle = gain de vitesse supplémentaire.
+            Pas de limite théorique connue.
           </p>
 
-          <div class="difficulty-bar">
-            <span>Difficulté</span>
-            <div class="bar"><div class="bar-fill" style="width:72%"></div></div>
-            <span class="diff-label">Intermédiaire</span>
+          <div class="diff-row">
+            <span class="dr-label">DIFFICULTÉ</span>
+            <div class="dr-track">
+              <div class="dr-fill red" style="--w:72%"></div>
+              <div class="dr-dots">
+                <span class="dd active"></span><span class="dd active"></span>
+                <span class="dd active"></span><span class="dd half"></span><span class="dd"></span>
+              </div>
+            </div>
+            <span class="dr-val red">7/10</span>
           </div>
 
-          <!-- INPUTS TIMELINE -->
-          <div class="input-timeline">
-            <h4>Séquence d'inputs (PS)</h4>
-            <div class="timeline">
-              <div class="tl-step" data-step="1">
-                <div class="tl-icon">⛷</div>
-                <div class="tl-text">
-                  <strong>Prise d'élan</strong>
-                  <span>Trouve une pente et push pour avoir de l'inertie</span>
+          <!-- INPUT SEQUENCE -->
+          <div class="input-seq">
+            <div class="is-header">SÉQUENCE D'INPUTS</div>
+            <div class="is-steps">
+              <div class="is-step" data-n="01">
+                <div class="is-icon slope-icon">
+                  <svg viewBox="0 0 40 40" width="24"><path d="M5 35 L35 10" stroke="#e63946" stroke-width="2.5" stroke-linecap="round"/><polygon points="35,10 28,12 30,18" fill="#e63946"/></svg>
+                </div>
+                <div class="is-info">
+                  <strong>ÉLAN</strong>
+                  <span>Pente + push pour l'inertie</span>
                 </div>
               </div>
-              <div class="tl-arrow">↓</div>
-              <div class="tl-step" data-step="2">
-                <div class="tl-icon">🔵✖</div>
-                <div class="tl-text">
-                  <strong>Hippy Jump</strong>
-                  <span>Maintenir <kbd>X</kbd> + <kbd>□</kbd> — stick gauche <strong>↑</strong></span>
+              <div class="is-connector"></div>
+              <div class="is-step" data-n="02">
+                <div class="is-icon">
+                  <div class="ps-keys"><kbd class="ps-x">X</kbd><span>+</span><kbd class="ps-sq">□</kbd></div>
+                </div>
+                <div class="is-info">
+                  <strong>HIPPY JUMP</strong>
+                  <span>X + □ — stick gauche ↑</span>
                 </div>
               </div>
-              <div class="tl-arrow">↓</div>
-              <div class="tl-step" data-step="3">
-                <div class="tl-icon">🎯</div>
-                <div class="tl-text">
-                  <strong>Sommet du saut</strong>
-                  <span>Au pic : maintenir <kbd>R1</kbd> + <kbd>X</kbd> → pose Spread Eagle</span>
+              <div class="is-connector pulse"></div>
+              <div class="is-step highlight" data-n="03">
+                <div class="is-icon">
+                  <div class="ps-keys"><kbd class="ps-r1">R1</kbd><span>+</span><kbd class="ps-x">X</kbd></div>
+                </div>
+                <div class="is-info">
+                  <strong>SPREAD EAGLE</strong>
+                  <span>Au sommet du saut — hors du board !</span>
                 </div>
               </div>
-              <div class="tl-arrow">↓</div>
-              <div class="tl-step" data-step="4">
-                <div class="tl-icon">⬆</div>
-                <div class="tl-text">
-                  <strong>Remontée sur le board</strong>
-                  <span>Lâcher <kbd>□</kbd> → appuyer <kbd>△</kbd> juste avant l'atterrissage</span>
+              <div class="is-connector"></div>
+              <div class="is-step" data-n="04">
+                <div class="is-icon">
+                  <div class="ps-keys"><kbd class="ps-tri">△</kbd></div>
+                </div>
+                <div class="is-info">
+                  <strong>REMONTÉE</strong>
+                  <span>Lâcher □ → △ avant l'atterrissage</span>
                 </div>
               </div>
-              <div class="tl-arrow">↓</div>
-              <div class="tl-step loop-step" data-step="5">
-                <div class="tl-icon">🔄</div>
-                <div class="tl-text">
-                  <strong>RÉPÉTER</strong>
-                  <span>Chaque cycle = +vitesse. Enchaîne pour accélérer !</span>
-                </div>
+              <div class="is-connector loop-conn">
+                <span class="loop-tag">🔁 LOOP</span>
               </div>
             </div>
           </div>
 
-          <!-- COMBO DISPLAY -->
-          <div class="combo-box">
-            <span class="combo-label">Résumé inputs :</span>
-            <div class="combo-keys">
-              <kbd>X</kbd><span>+</span><kbd>□</kbd>
-              <span class="combo-arrow">→</span>
-              <kbd>R1</kbd><span>+</span><kbd>X</kbd>
-              <span class="combo-arrow">→</span>
-              <span class="combo-release">lâcher</span><kbd>□</kbd>
-              <span class="combo-arrow">→</span>
-              <kbd>△</kbd>
-              <span class="combo-arrow">→</span>
-              <span class="combo-loop">🔁</span>
+          <div class="warning-box">
+            <div class="wb-icon">⚠</div>
+            <div class="wb-text">
+              <strong>ATTENTION</strong>
+              Spread Eagle <em>sur le board</em> = juste un "no foot air". La pose doit être faite <em>hors du board uniquement</em>.
+            </div>
+          </div>
+
+          <div class="combo-display">
+            <span class="cd-title">COMBO</span>
+            <div class="cd-keys">
+              <kbd class="ps-x">X</kbd><kbd class="ps-sq">□</kbd>
+              <span class="cd-arr">→</span>
+              <kbd class="ps-r1">R1</kbd><kbd class="ps-x">X</kbd>
+              <span class="cd-arr">→</span>
+              <span class="cd-rel">relâche</span><kbd class="ps-sq">□</kbd>
+              <span class="cd-arr">→</span>
+              <kbd class="ps-tri">△</kbd>
+              <span class="cd-arr">→</span>
+              <span class="cd-loop">∞</span>
             </div>
           </div>
         </div>
 
-        <!-- SCHÉMA SVG SPREAD EAGLE -->
-        <div class="card-visual">
-          <div class="diagram-title">Schéma du cycle</div>
-          <svg class="diagram" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-            <!-- BG -->
-            <defs>
-              <linearGradient id="grd1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#0f0f1a"/>
-                <stop offset="100%" style="stop-color:#1a1a2e"/>
-              </linearGradient>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <rect width="400" height="500" fill="url(#grd1)" rx="12"/>
+        <!-- RIGHT : ANIMATED SVG DIAGRAM -->
+        <div class="gc-right">
+          <div class="diagram-label">SCHÉMA · CYCLE SPREAD EAGLE</div>
+          <div class="diagram-wrap">
+            <svg id="svg-spread" class="gc-svg" viewBox="0 0 480 560" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0a0a14"/>
+                  <stop offset="100%" stop-color="#06060e"/>
+                </linearGradient>
+                <filter id="red-glow">
+                  <feGaussianBlur stdDeviation="4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="cyan-glow">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="glow-soft">
+                  <feGaussianBlur stdDeviation="2" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <!-- Grid pattern -->
+                <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(0,180,216,0.06)" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#e63946"/>
+                </marker>
+                <marker id="arrowP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#f72585"/>
+                </marker>
+                <marker id="arrowC" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#00b4d8"/>
+                </marker>
+              </defs>
 
-            <!-- GROUND -->
-            <rect x="0" y="440" width="400" height="60" fill="#1e1e30"/>
-            <line x1="0" y1="440" x2="400" y2="440" stroke="#e63946" stroke-width="2" stroke-dasharray="8,4"/>
+              <rect width="480" height="560" fill="url(#bgG)" rx="12"/>
+              <rect width="480" height="560" fill="url(#grid)" rx="12"/>
 
-            <!-- SLOPE -->
-            <path d="M 20 440 L 150 390" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-            <text x="70" y="425" fill="#aaa" font-size="11" font-family="Inter">Pente</text>
+              <!-- Ground line -->
+              <line x1="0" y1="490" x2="480" y2="490" stroke="#e63946" stroke-width="1" stroke-dasharray="8,4" opacity="0.5"/>
+              <rect x="0" y="490" width="480" height="70" fill="rgba(230,57,70,0.04)"/>
+              <text x="10" y="508" fill="#e63946" font-size="9" font-family="Share Tech Mono" opacity="0.6">GROUND LEVEL ────────────────────────────</text>
 
-            <!-- TRAJECTORY ARC -->
-            <path d="M 150 390 Q 230 200 310 390" stroke="#e63946" stroke-width="2.5" fill="none" stroke-dasharray="6,3" filter="url(#glow)"/>
+              <!-- SLOPE -->
+              <path d="M 30 490 L 170 420" stroke="#334" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 30 490 L 170 420" stroke="rgba(0,180,216,0.3)" stroke-width="1"/>
+              <!-- slope hatching -->
+              <line x1="55" y1="490" x2="45" y2="476" stroke="#223" stroke-width="1"/>
+              <line x1="80" y1="490" x2="70" y2="476" stroke="#223" stroke-width="1"/>
+              <line x1="105" y1="490" x2="95" y2="476" stroke="#223" stroke-width="1"/>
+              <line x1="130" y1="490" x2="120" y2="476" stroke="#223" stroke-width="1"/>
+              <line x1="155" y1="490" x2="145" y2="476" stroke="#223" stroke-width="1"/>
+              <text x="60" y="470" fill="rgba(0,180,216,0.5)" font-size="10" font-family="Share Tech Mono">PENTE</text>
 
-            <!-- SPEED ARROW AT START -->
-            <polygon points="150,390 135,380 135,400" fill="#e63946"/>
-            <line x1="90" y1="390" x2="148" y2="390" stroke="#e63946" stroke-width="2"/>
-            <text x="85" y="385" fill="#e63946" font-size="10" font-family="Inter" font-weight="bold">VITESSE</text>
+              <!-- TRAJECTORY ARC — main path -->
+              <path d="M 170 420 Q 280 160 390 420" stroke="rgba(230,57,70,0.2)" stroke-width="1" fill="none" stroke-dasharray="4,3"/>
+              <path id="traj-main" d="M 170 420 Q 280 160 390 420" stroke="#e63946" stroke-width="2.5" fill="none" filter="url(#red-glow)" stroke-dasharray="400" stroke-dashoffset="400">
+                <animate attributeName="stroke-dashoffset" from="400" to="0" dur="2s" begin="0.5s" fill="freeze"/>
+              </path>
 
-            <!-- STEP LABELS ON ARC -->
-            <!-- Step 1: ground -->
-            <circle cx="150" cy="390" r="8" fill="#e63946" filter="url(#glow)"/>
-            <text x="158" y="394" fill="white" font-size="12" font-family="Inter" font-weight="600">1</text>
-            <text x="115" y="408" fill="#ccc" font-size="10" font-family="Inter">X+□</text>
+              <!-- SPEED VECTOR at start -->
+              <line x1="110" y1="445" x2="162" y2="424" stroke="#e63946" stroke-width="2" marker-end="url(#arrowR)" filter="url(#red-glow)"/>
+              <text x="88" y="440" fill="#e63946" font-size="9" font-family="Share Tech Mono" filter="url(#glow-soft)">VITESSE →</text>
 
-            <!-- Step 2: mid arc -->
-            <circle cx="200" cy="270" r="8" fill="#ff9f1c" filter="url(#glow)"/>
-            <text x="210" y="274" fill="white" font-size="12" font-family="Inter" font-weight="600">2</text>
-            <text x="215" y="265" fill="#ff9f1c" font-size="10" font-family="Inter">R1+X</text>
+              <!-- STEP NODES -->
+              <!-- Node 1 — take off -->
+              <circle cx="170" cy="420" r="10" fill="#0a0a14" stroke="#e63946" stroke-width="2" filter="url(#red-glow)"/>
+              <text x="165" y="425" fill="#e63946" font-size="11" font-family="Orbitron" font-weight="700">1</text>
+              <rect x="106" y="395" width="56" height="18" rx="3" fill="#0a0a14" stroke="rgba(230,57,70,0.4)" stroke-width="1"/>
+              <text x="112" y="408" fill="#e63946" font-size="9" font-family="Share Tech Mono">X + □</text>
 
-            <!-- SPREAD EAGLE FIGURE at top -->
-            <g transform="translate(230,200)" filter="url(#glow)">
-              <!-- body -->
-              <ellipse cx="0" cy="-15" rx="6" ry="12" fill="#00b4d8"/>
-              <!-- head -->
-              <circle cx="0" cy="-32" r="7" fill="#00b4d8"/>
-              <!-- arms spread -->
-              <line x1="-25" y1="-18" x2="25" y2="-18" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-              <!-- legs spread -->
-              <line x1="-20" y1="-3" x2="0" y2="10" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-              <line x1="20" y1="-3" x2="0" y2="10" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-              <!-- board below -->
-              <rect x="-25" y="22" width="50" height="8" rx="4" fill="#555" stroke="#00b4d8" stroke-width="1"/>
-              <text x="-22" y="-44" fill="#00b4d8" font-size="9" font-family="Inter" font-weight="bold">SPREAD EAGLE</text>
-            </g>
+              <!-- Node 2 — mid air -->
+              <circle cx="260" cy="290" r="10" fill="#0a0a14" stroke="#ff9f1c" stroke-width="2" filter="url(#glow-soft)"/>
+              <text x="255" y="295" fill="#ff9f1c" font-size="11" font-family="Orbitron" font-weight="700">2</text>
 
-            <!-- Step 3: peak -->
-            <circle cx="230" cy="190" r="8" fill="#00b4d8" filter="url(#glow)"/>
-            <text x="240" y="194" fill="white" font-size="12" font-family="Inter" font-weight="600">3</text>
+              <!-- Node 3 — PEAK -->
+              <circle cx="280" cy="168" r="14" fill="#0a0a14" stroke="#00b4d8" stroke-width="2.5" filter="url(#cyan-glow)"/>
+              <text x="273" y="174" fill="#00b4d8" font-size="12" font-family="Orbitron" font-weight="700">3</text>
 
-            <!-- Step 4: landing -->
-            <circle cx="310" cy="390" r="8" fill="#2dc653" filter="url(#glow)"/>
-            <text x="320" y="394" fill="white" font-size="12" font-family="Inter" font-weight="600">4</text>
-            <text x="295" y="408" fill="#2dc653" font-size="10" font-family="Inter">△</text>
+              <!-- R1+X label at peak -->
+              <rect x="300" y="148" width="70" height="20" rx="3" fill="rgba(0,180,216,0.1)" stroke="#00b4d8" stroke-width="1"/>
+              <text x="308" y="162" fill="#00b4d8" font-size="10" font-family="Share Tech Mono">R1 + X</text>
 
-            <!-- LOOP ARROW -->
-            <path d="M 330 390 Q 370 350 370 310 Q 370 250 340 230" stroke="#f72585" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
-            <polygon points="340,230 328,238 345,242" fill="#f72585"/>
-            <text x="348" y="330" fill="#f72585" font-size="11" font-family="Inter" font-weight="bold">LOOP</text>
-            <text x="340" y="344" fill="#f72585" font-size="11" font-family="Inter" font-weight="bold">+⚡</text>
+              <!-- SPREAD EAGLE FIGURE — cyberpunk style -->
+              <g transform="translate(280,95)" filter="url(#cyan-glow)">
+                <!-- Glow circle behind figure -->
+                <circle cx="0" cy="0" r="38" fill="rgba(0,180,216,0.06)" stroke="rgba(0,180,216,0.2)" stroke-width="1"/>
+                <!-- body torso -->
+                <rect x="-7" y="-10" width="14" height="22" rx="3" fill="#00b4d8" opacity="0.9"/>
+                <!-- head -->
+                <circle cx="0" cy="-20" r="9" fill="#00b4d8"/>
+                <!-- visor line on head -->
+                <rect x="-7" y="-23" width="14" height="5" rx="2" fill="#0a0a14" opacity="0.7"/>
+                <rect x="-4" y="-22" width="8" height="3" rx="1" fill="#00f5d4" opacity="0.8"/>
+                <!-- SPREAD arms -->
+                <line x1="-7" y1="-2" x2="-34" y2="-14" stroke="#00b4d8" stroke-width="5" stroke-linecap="round"/>
+                <line x1="7" y1="-2" x2="34" y2="-14" stroke="#00b4d8" stroke-width="5" stroke-linecap="round"/>
+                <!-- hands glow -->
+                <circle cx="-34" cy="-14" r="4" fill="#00f5d4" filter="url(#cyan-glow)"/>
+                <circle cx="34" cy="-14" r="4" fill="#00f5d4" filter="url(#cyan-glow)"/>
+                <!-- SPREAD legs -->
+                <line x1="-4" y1="12" x2="-22" y2="30" stroke="#00b4d8" stroke-width="5" stroke-linecap="round"/>
+                <line x1="4" y1="12" x2="22" y2="30" stroke="#00b4d8" stroke-width="5" stroke-linecap="round"/>
+                <!-- feet glow -->
+                <circle cx="-22" cy="30" r="4" fill="#00f5d4" filter="url(#cyan-glow)"/>
+                <circle cx="22" cy="30" r="4" fill="#00f5d4" filter="url(#cyan-glow)"/>
+                <!-- board floating below -->
+                <rect x="-28" y="44" width="56" height="10" rx="5" fill="#1a1a2e" stroke="#00b4d8" stroke-width="1.5"/>
+                <line x1="-18" y1="49" x2="18" y2="49" stroke="#00b4d8" stroke-width="0.5" opacity="0.5"/>
+                <!-- wheels -->
+                <circle cx="-20" cy="54" r="5" fill="#0a0a14" stroke="#00b4d8" stroke-width="1.5"/>
+                <circle cx="20" cy="54" r="5" fill="#0a0a14" stroke="#00b4d8" stroke-width="1.5"/>
+                <!-- floating gap label -->
+                <line x1="0" y1="30" x2="0" y2="44" stroke="#00b4d8" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+                <!-- label: SPREAD EAGLE -->
+                <text x="-38" y="-36" fill="#00b4d8" font-size="9" font-family="Share Tech Mono" font-weight="bold">SPREAD EAGLE</text>
+                <text x="-24" y="-26" fill="#00f5d4" font-size="8" font-family="Share Tech Mono">[ HORS BOARD ]</text>
+              </g>
 
-            <!-- WARNING -->
-            <rect x="10" y="10" width="260" height="32" rx="6" fill="#2a0a0a" stroke="#e63946" stroke-width="1"/>
-            <text x="18" y="30" fill="#e63946" font-size="11" font-family="Inter" font-weight="600">⚠ Spread Eagle HORS du board uniquement !</text>
-          </svg>
+              <!-- Node 4 — landing -->
+              <circle cx="390" cy="420" r="10" fill="#0a0a14" stroke="#2dc653" stroke-width="2" filter="url(#glow-soft)"/>
+              <text x="384" y="425" fill="#2dc653" font-size="11" font-family="Orbitron" font-weight="700">4</text>
+              <rect x="398" y="400" width="48" height="18" rx="3" fill="rgba(45,198,83,0.1)" stroke="rgba(45,198,83,0.4)" stroke-width="1"/>
+              <text x="406" y="413" fill="#2dc653" font-size="9" font-family="Share Tech Mono">△ LAND</text>
 
-          <div class="diagram-warning">
-            ⚠️ Si tu fais le Spread Eagle <em>sur le board</em>, tu obtiens juste un "no foot air" — pas d'effet vitesse.
+              <!-- LOOP ARROW  -->
+              <path d="M 415 415 Q 455 350 455 280 Q 455 200 435 175" stroke="#f72585" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrowP)" filter="url(#glow-soft)"/>
+              <!-- Loop label -->
+              <rect x="428" y="290" width="44" height="34" rx="4" fill="rgba(247,37,133,0.1)" stroke="rgba(247,37,133,0.4)" stroke-width="1"/>
+              <text x="435" y="305" fill="#f72585" font-size="9" font-family="Share Tech Mono">LOOP</text>
+              <text x="435" y="318" fill="#f72585" font-size="10" font-family="Share Tech Mono">+⚡</text>
+
+              <!-- SPEED ACCUMULATION indicator -->
+              <g transform="translate(12,12)">
+                <rect width="155" height="60" rx="5" fill="rgba(0,0,0,0.6)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
+                <text x="10" y="20" fill="#e63946" font-size="9" font-family="Share Tech Mono">VITESSE ACCUMULÉE</text>
+                <!-- mini progress bars -->
+                <rect x="10" y="28" width="50" height="5" rx="2" fill="rgba(230,57,70,0.15)"/>
+                <rect x="10" y="28" width="18" height="5" rx="2" fill="#e63946"/>
+                <text x="65" y="33" fill="#e63946" font-size="8" font-family="Share Tech Mono">CYCLE 1</text>
+
+                <rect x="10" y="38" width="50" height="5" rx="2" fill="rgba(230,57,70,0.15)"/>
+                <rect x="10" y="38" width="34" height="5" rx="2" fill="#e63946"/>
+                <text x="65" y="43" fill="#e63946" font-size="8" font-family="Share Tech Mono">CYCLE 2</text>
+
+                <rect x="10" y="48" width="50" height="5" rx="2" fill="rgba(230,57,70,0.15)"/>
+                <rect x="10" y="48" width="50" height="5" rx="2" fill="#e63946" filter="url(#red-glow)"/>
+                <text x="65" y="53" fill="#e63946" font-size="8" font-family="Share Tech Mono">CYCLE N ∞</text>
+              </g>
+
+              <!-- WARNING banner bottom -->
+              <rect x="12" y="500" width="456" height="48" rx="5" fill="rgba(230,57,70,0.06)" stroke="rgba(230,57,70,0.25)" stroke-width="1"/>
+              <text x="20" y="520" fill="#e63946" font-size="10" font-family="Share Tech Mono" font-weight="bold">⚠  HORS BOARD UNIQUEMENT</text>
+              <text x="20" y="535" fill="rgba(230,57,70,0.6)" font-size="9" font-family="Share Tech Mono">Sur le board → "no foot air" — aucun gain de vitesse</text>
+            </svg>
           </div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- GLITCH 2 — SCAFFOLD LAUNCH -->
-    <article class="glitch-card" id="scaffold-launch">
-      <div class="card-badge secondary">🚀 LAUNCH</div>
-      <div class="card-layout reverse">
-        <div class="card-visual">
-          <div class="diagram-title">Schéma du Launch Glitch</div>
-          <svg class="diagram" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="grd2" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#0a1628"/>
-                <stop offset="100%" style="stop-color:#0f1e38"/>
-              </linearGradient>
-              <filter id="glow2">
-                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <rect width="400" height="420" fill="url(#grd2)" rx="12"/>
+    <!-- ====== CARD 2 : SCAFFOLD LAUNCH ====== -->
+    <div class="glitch-card" id="scaffold-launch">
+      <div class="gc-glow pink"></div>
+      <div class="gc-corner tl"></div><div class="gc-corner tr"></div>
+      <div class="gc-corner bl"></div><div class="gc-corner br"></div>
 
-            <!-- Ground -->
-            <rect x="0" y="380" width="400" height="40" fill="#111827"/>
-            <line x1="0" y1="380" x2="400" y2="380" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <div class="gc-header">
+        <div class="gc-badge pink">🚀 LAUNCH · CATAPULTE</div>
+        <div class="gc-num">02</div>
+      </div>
 
-            <!-- SCAFFOLD STRUCTURE -->
-            <g transform="translate(140, 180)">
-              <!-- Scaffold poles -->
-              <line x1="0" y1="0" x2="0" y2="200" stroke="#4a5568" stroke-width="8" stroke-linecap="round"/>
-              <line x1="80" y1="0" x2="80" y2="200" stroke="#4a5568" stroke-width="8" stroke-linecap="round"/>
-              <!-- Cross beams -->
-              <line x1="0" y1="60" x2="80" y2="60" stroke="#4a5568" stroke-width="5"/>
-              <line x1="0" y1="120" x2="80" y2="120" stroke="#4a5568" stroke-width="5"/>
-              <line x1="10" y1="60" x2="70" y2="120" stroke="#4a5568" stroke-width="2" stroke-dasharray="4,3"/>
-              <!-- Platform top -->
-              <rect x="-15" y="-10" width="110" height="12" rx="3" fill="#6b7280" stroke="#ff9f1c" stroke-width="1.5"/>
-            </g>
+      <div class="gc-body reverse">
+        <!-- DIAGRAM FIRST (left on reverse) -->
+        <div class="gc-right">
+          <div class="diagram-label">SCHÉMA · SCAFFOLD LAUNCH GLITCH</div>
+          <div class="diagram-wrap">
+            <svg class="gc-svg" viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bgG2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0a0614"/>
+                  <stop offset="100%" stop-color="#06040e"/>
+                </linearGradient>
+                <filter id="pink-glow">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="og-glow">
+                  <feGaussianBlur stdDeviation="3" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <marker id="arrowPink" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#f72585"/>
+                </marker>
+                <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(247,37,133,0.05)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="480" height="520" fill="url(#bgG2)" rx="12"/>
+              <rect width="480" height="520" fill="url(#grid2)" rx="12"/>
 
-            <!-- MANUAL POD on top -->
-            <rect x="155" y="160" width="70" height="14" rx="4" fill="#ff9f1c" stroke="#ffd60a" stroke-width="2"/>
-            <text x="158" y="172" fill="#000" font-size="9" font-family="Inter" font-weight="bold">MANUAL POD</text>
+              <!-- Ground -->
+              <rect x="0" y="450" width="480" height="70" fill="rgba(247,37,133,0.03)"/>
+              <line x1="0" y1="450" x2="480" y2="450" stroke="#f72585" stroke-width="1" stroke-dasharray="8,4" opacity="0.4"/>
+              <text x="10" y="468" fill="rgba(247,37,133,0.5)" font-size="9" font-family="Share Tech Mono">GROUND ────────────────────────────────</text>
 
-            <!-- BOARD hanging at edge -->
-            <rect x="217" y="168" width="40" height="8" rx="4" fill="#e63946" stroke="#fff" stroke-width="1"/>
-            <text x="256" y="168" fill="#e63946" font-size="9" font-family="Inter">← board</text>
+              <!-- SCAFFOLD STRUCTURE -->
+              <g transform="translate(160, 220)">
+                <!-- Scaffold vertical poles -->
+                <line x1="0" y1="0" x2="0" y2="230" stroke="#2d3748" stroke-width="10" stroke-linecap="round"/>
+                <line x1="100" y1="0" x2="100" y2="230" stroke="#2d3748" stroke-width="10" stroke-linecap="round"/>
+                <!-- Neon edge on poles -->
+                <line x1="0" y1="0" x2="0" y2="230" stroke="rgba(247,37,133,0.3)" stroke-width="2"/>
+                <line x1="100" y1="0" x2="100" y2="230" stroke="rgba(247,37,133,0.3)" stroke-width="2"/>
+                <!-- Cross beams -->
+                <line x1="0" y1="70" x2="100" y2="70" stroke="#2d3748" stroke-width="6"/>
+                <line x1="0" y1="140" x2="100" y2="140" stroke="#2d3748" stroke-width="6"/>
+                <!-- Diagonal braces -->
+                <line x1="8" y1="70" x2="92" y2="140" stroke="#1e2535" stroke-width="2"/>
+                <line x1="92" y1="70" x2="8" y2="140" stroke="#1e2535" stroke-width="2"/>
 
-            <!-- PLAYER running -->
-            <g transform="translate(100, 340)">
-              <circle cx="0" cy="-40" r="8" fill="#00b4d8"/>
-              <rect x="-5" cy="-32" y="-30" width="10" height="22" rx="3" fill="#00b4d8"/>
-              <line x1="-12" y1="-25" x2="12" y2="-20" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-              <line x1="-6" y1="-8" x2="-10" y2="5" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-              <line x1="6" y1="-8" x2="12" y2="0" stroke="#00b4d8" stroke-width="4" stroke-linecap="round"/>
-            </g>
-            <text x="90" y="355" fill="#00b4d8" font-size="10" font-family="Inter">RUN →</text>
+                <!-- PLATFORM top -->
+                <rect x="-20" y="-14" width="140" height="16" rx="4" fill="#374151" stroke="rgba(247,37,133,0.5)" stroke-width="1.5"/>
+                <line x1="-20" y1="-6" x2="120" y2="-6" stroke="rgba(247,37,133,0.2)" stroke-width="1"/>
 
-            <!-- LAUNCH TRAJECTORY -->
-            <path d="M 237 168 Q 280 60 350 20" stroke="#f72585" stroke-width="3" fill="none" stroke-dasharray="0" filter="url(#glow2)"/>
-            <!-- Arrow at end of trajectory -->
-            <polygon points="350,20 335,15 340,30" fill="#f72585"/>
+                <!-- MANUAL POD -->
+                <rect x="-10" y="-28" width="120" height="16" rx="4" fill="rgba(247,37,133,0.15)" stroke="#f72585" stroke-width="2" filter="url(#og-glow)"/>
+                <text x="-4" y="-16" fill="#f72585" font-size="9" font-family="Share Tech Mono">MANUAL POD</text>
 
-            <!-- SPEED LINES -->
-            <line x1="240" y1="155" x2="270" y2="130" stroke="#f72585" stroke-width="1.5" opacity="0.6"/>
-            <line x1="248" y1="160" x2="280" y2="140" stroke="#f72585" stroke-width="1" opacity="0.4"/>
-            <line x1="232" y1="150" x2="258" y2="125" stroke="#f72585" stroke-width="1" opacity="0.4"/>
+                <!-- BOARD hanging at edge -->
+                <rect x="75" y="-22" width="55" height="9" rx="4" fill="#e63946" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <!-- Wheels -->
+                <circle cx="82" cy="-13" r="5" fill="#222" stroke="#e63946" stroke-width="1.5"/>
+                <circle cx="124" cy="-13" r="5" fill="#222" stroke="#e63946" stroke-width="1.5"/>
+                <!-- "board" label -->
+                <text x="78" y="-28" fill="#e63946" font-size="9" font-family="Share Tech Mono">← BOARD</text>
+                <!-- hanging effect: edge glow -->
+                <rect x="119" y="-22" width="12" height="9" rx="0" fill="rgba(230,57,70,0.4)" filter="url(#og-glow)"/>
+              </g>
 
-            <!-- LABELS -->
-            <text x="310" y="50" fill="#f72585" font-size="13" font-family="Inter" font-weight="bold" filter="url(#glow2)">CATAPULTE !</text>
-            <text x="308" y="66" fill="#f72585" font-size="11" font-family="Inter">INSTANT</text>
+              <!-- HITBOX indicator -->
+              <rect x="272" y="192" width="24" height="20" rx="2" fill="none" stroke="#ffd60a" stroke-width="1.5" stroke-dasharray="3,2"/>
+              <text x="264" y="188" fill="#ffd60a" font-size="9" font-family="Share Tech Mono">HITBOX</text>
 
-            <!-- JUMP indicator -->
-            <circle cx="237" cy="168" r="12" fill="none" stroke="#ffd60a" stroke-width="2" stroke-dasharray="3,2"/>
-            <text x="248" y="155" fill="#ffd60a" font-size="10" font-family="Inter" font-weight="bold">SAUT !</text>
+              <!-- PLAYER RUNNING -->
+              <g transform="translate(80, 395)" filter="url(#og-glow)">
+                <circle cx="0" cy="-38" r="10" fill="#ff9f1c"/>
+                <rect x="-7" y="-28" width="14" height="22" rx="3" fill="#ff9f1c"/>
+                <!-- running arms -->
+                <line x1="-7" y1="-22" x2="-18" y2="-12" stroke="#ff9f1c" stroke-width="4" stroke-linecap="round"/>
+                <line x1="7" y1="-22" x2="16" y2="-30" stroke="#ff9f1c" stroke-width="4" stroke-linecap="round"/>
+                <!-- running legs -->
+                <line x1="-5" y1="-6" x2="-12" y2="8" stroke="#ff9f1c" stroke-width="4" stroke-linecap="round"/>
+                <line x1="5" y1="-6" x2="14" y2="2" stroke="#ff9f1c" stroke-width="4" stroke-linecap="round"/>
+                <!-- motion lines -->
+                <line x1="-30" y1="-35" x2="-16" y2="-35" stroke="#ff9f1c" stroke-width="1.5" opacity="0.5"/>
+                <line x1="-35" y1="-28" x2="-18" y2="-28" stroke="#ff9f1c" stroke-width="1" opacity="0.3"/>
+                <line x1="-28" y1="-20" x2="-15" y2="-20" stroke="#ff9f1c" stroke-width="1" opacity="0.3"/>
+              </g>
+              <text x="52" y="413" fill="#ff9f1c" font-size="10" font-family="Share Tech Mono">RUN →</text>
 
-            <!-- Step numbers -->
-            <circle cx="60" cy="345" r="12" fill="#ff9f1c"/>
-            <text x="56" y="349" fill="#000" font-size="11" font-family="Inter" font-weight="bold">1</text>
+              <!-- JUMP indicator circle -->
+              <circle cx="267" cy="205" r="18" fill="none" stroke="#ffd60a" stroke-width="2" stroke-dasharray="4,3" opacity="0.8"/>
+              <text x="253" y="195" fill="#ffd60a" font-size="10" font-family="Share Tech Mono" font-weight="bold">SAUT</text>
+              <text x="255" y="207" fill="#ffd60a" font-size="9" font-family="Share Tech Mono">ici !</text>
 
-            <circle cx="195" cy="170" r="12" fill="#ff9f1c"/>
-            <text x="191" y="174" fill="#000" font-size="11" font-family="Inter" font-weight="bold">2</text>
+              <!-- LAUNCH TRAJECTORY — explosive -->
+              <path d="M 267 205 Q 330 100 420 30" stroke="rgba(247,37,133,0.2)" stroke-width="1" fill="none"/>
+              <path d="M 267 205 Q 330 100 420 30" stroke="#f72585" stroke-width="3.5" fill="none" filter="url(#pink-glow)" marker-end="url(#arrowPink)"/>
+              <!-- Speed lines on trajectory -->
+              <path d="M 270 200 Q 332 97 422 27" stroke="#f72585" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="3,6"/>
+              <path d="M 264 210 Q 328 103 418 33" stroke="#f72585" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="2,8"/>
 
-            <circle cx="237" cy="152" r="12" fill="#f72585"/>
-            <text x="233" y="156" fill="white" font-size="11" font-family="Inter" font-weight="bold">3</text>
+              <!-- CATAPULT label -->
+              <rect x="390" y="8" width="82" height="36" rx="4" fill="rgba(247,37,133,0.12)" stroke="#f72585" stroke-width="1.5"/>
+              <text x="398" y="24" fill="#f72585" font-size="11" font-family="Orbitron" font-weight="700">CATAPULTE</text>
+              <text x="400" y="38" fill="rgba(247,37,133,0.8)" font-size="9" font-family="Share Tech Mono">INSTANTANÉ</text>
 
-            <circle cx="350" cy="20" r="12" fill="#2dc653"/>
-            <text x="346" y="24" fill="white" font-size="11" font-family="Inter" font-weight="bold">4</text>
+              <!-- Step numbers -->
+              <g>
+                <circle cx="60" cy="410" r="13" fill="#ff9f1c" opacity="0.15" stroke="#ff9f1c" stroke-width="1.5"/>
+                <text x="55" y="415" fill="#ff9f1c" font-size="12" font-family="Orbitron" font-weight="700">1</text>
 
-            <!-- Map reachable indicator -->
-            <rect x="5" y="8" width="200" height="28" rx="5" fill="#0a2a1a" stroke="#2dc653" stroke-width="1"/>
-            <text x="12" y="26" fill="#2dc653" font-size="10" font-family="Inter">✓ Utilisable partout sur la map</text>
-          </svg>
+                <circle cx="210" cy="215" r="13" fill="rgba(247,37,133,0.15)" stroke="#f72585" stroke-width="1.5"/>
+                <text x="205" y="220" fill="#f72585" font-size="12" font-family="Orbitron" font-weight="700">2</text>
+
+                <circle cx="267" cy="205" r="13" fill="rgba(255,214,10,0.1)" stroke="#ffd60a" stroke-width="2"/>
+                <text x="262" y="210" fill="#ffd60a" font-size="12" font-family="Orbitron" font-weight="700">3</text>
+
+                <circle cx="420" cy="30" r="13" fill="rgba(247,37,133,0.15)" stroke="#f72585" stroke-width="1.5"/>
+                <text x="415" y="35" fill="#f72585" font-size="12" font-family="Orbitron" font-weight="700">4</text>
+              </g>
+
+              <!-- Info panel bottom -->
+              <rect x="12" y="462" width="456" height="46" rx="5" fill="rgba(0,0,0,0.5)" stroke="rgba(45,198,83,0.3)" stroke-width="1"/>
+              <text x="20" y="480" fill="#2dc653" font-size="10" font-family="Share Tech Mono">✓  UTILISABLE N'IMPORTE OÙ SUR LA MAP</text>
+              <text x="20" y="496" fill="rgba(45,198,83,0.6)" font-size="9" font-family="Share Tech Mono">Scaffold + Manual Pod = setup portable · 0 restriction de zone</text>
+            </svg>
+          </div>
         </div>
 
-        <div class="card-info">
-          <h3 class="card-title">Launch Glitch<br/><em>au Scaffold</em></h3>
-          <p class="card-desc">
-            Ce glitch exploite l'interaction physique entre le <strong>scaffold</strong>, un <strong>manual pod</strong>
-            et la hitbox du board qui dépasse dans le vide. En approchant au bon moment et en sautant
-            juste avant de toucher le board, le moteur physique calcule mal la collision et te propulse
-            instantanément comme une catapulte.
+        <div class="gc-left">
+          <h3 class="gc-title">Launch Glitch<br/><em class="pink-text">au Scaffold</em></h3>
+
+          <p class="gc-desc">
+            Exploit physique exploitant la <strong>hitbox mal calculée</strong> du board en porte-à-faux.
+            Quand le joueur approche avec le bon timing, le moteur génère une <em>force d'impulsion anormale</em>
+            — catapulte instantanée vers n'importe quel point de la map.
           </p>
 
-          <div class="difficulty-bar">
-            <span>Difficulté</span>
-            <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
-            <span class="diff-label">Facile</span>
+          <div class="diff-row">
+            <span class="dr-label">DIFFICULTÉ</span>
+            <div class="dr-track">
+              <div class="dr-fill pink" style="--w:40%"></div>
+              <div class="dr-dots">
+                <span class="dd pink active"></span><span class="dd pink active"></span>
+                <span class="dd pink"></span><span class="dd pink"></span><span class="dd pink"></span>
+              </div>
+            </div>
+            <span class="dr-val pink">4/10</span>
           </div>
 
-          <div class="steps-list">
-            <h4>Étapes</h4>
-            <ol>
-              <li>
-                <span class="step-num">1</span>
-                <div>
-                  <strong>Déploie un Scaffold</strong>
-                  <p>Place-le n'importe où sur la map — de préférence sur une surface plane.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step-num">2</span>
-                <div>
-                  <strong>Pose un Manual Pod sur le dessus</strong>
-                  <p>Le pod doit être positionné près d'un bord pour que le board puisse y pendre.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step-num">3</span>
-                <div>
-                  <strong>Positionne le board au bord</strong>
-                  <p>Le board doit dépasser dans le vide — c'est ça qui crée la hitbox exploitable.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step-num">4</span>
-                <div>
-                  <strong>Approche en courant + <kbd>Saut</kbd> juste avant le contact</strong>
-                  <p>Le timing est crucial : trop tôt = rien, trop tard = chute normale.</p>
-                </div>
-              </li>
-            </ol>
-          </div>
+          <ol class="step-ol">
+            <li>
+              <div class="sol-num">01</div>
+              <div>
+                <strong>Déploie un Scaffold</strong>
+                <p>N'importe où sur la map — surface plane recommandée.</p>
+              </div>
+            </li>
+            <li>
+              <div class="sol-num">02</div>
+              <div>
+                <strong>Pose un Manual Pod sur le dessus</strong>
+                <p>Near the edge pour que le board puisse déborder dans le vide.</p>
+              </div>
+            </li>
+            <li>
+              <div class="sol-num">03</div>
+              <div>
+                <strong>Board au bord (dans le vide)</strong>
+                <p>La hitbox qui pend crée le trigger point de l'exploit.</p>
+              </div>
+            </li>
+            <li>
+              <div class="sol-num pink">04</div>
+              <div>
+                <strong>Run → <kbd class="ps-x">✕ SAUT</kbd> juste avant le contact</strong>
+                <p>Frame window ~2-3 frames. Timing précis mais learnable rapidement.</p>
+              </div>
+            </li>
+          </ol>
 
-          <div class="tip-box">
-            <span class="tip-icon">💡</span>
-            <div>
-              <strong>Pro tip</strong>
-              <p>Tu peux pre-placer un scaffold avant un challenge pour t'y catapulter rapidement et traverser la map en quelques secondes.</p>
+          <div class="tip-card">
+            <div class="tc-bar pink"></div>
+            <div class="tc-content">
+              <span class="tc-label">PRO TIP</span>
+              <p>Pre-place un scaffold avant un challenge pour traverser la map en secondes. Combine avec le Speed Glitch pour une vitesse extrême.</p>
             </div>
           </div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- GLITCH 3 — DOUBLE GRINDS -->
-    <article class="glitch-card" id="double-grinds">
-      <div class="card-badge tertiary">🔀 OFFICIEL</div>
-      <div class="card-layout">
-        <div class="card-info">
-          <h3 class="card-title">Double Grinds<br/><em>(Semi-Officiel)</em></h3>
-          <p class="card-desc">
-            À l'origine un glitch découvert par la communauté, les <strong>double grinds</strong> permettent
-            d'enchaîner deux grind tricks simultanément ou en succession ultra-rapide sur un même rail.
-            Full Circle a décidé de <em>conserver volontairement</em> ce comportement car la communauté
-            les adorait. Ils seront officiellement intégrés dans la mise à jour <strong>0.30.5</strong>.
+    <!-- ====== CARD 3 : DOUBLE GRINDS ====== -->
+    <div class="glitch-card" id="double-grinds">
+      <div class="gc-glow green"></div>
+      <div class="gc-corner tl"></div><div class="gc-corner tr"></div>
+      <div class="gc-corner bl"></div><div class="gc-corner br"></div>
+
+      <div class="gc-header">
+        <div class="gc-badge green">🔀 SEMI-OFFICIEL · 0.30.5</div>
+        <div class="gc-num">03</div>
+      </div>
+
+      <div class="gc-body">
+        <div class="gc-left">
+          <h3 class="gc-title">Double Grinds<br/><em class="green-text">Semi-Officiel</em></h3>
+
+          <p class="gc-desc">
+            Glitch communautaire devenu <strong>feature officielle</strong>. Deux tricks de grind enchaînés
+            ultra-rapidement sur un même rail. Full Circle l'a volontairement <em>conservé et codifié</em>
+            suite au plébiscite de la communauté. Intégration officielle en <strong>0.30.5</strong>.
           </p>
 
-          <div class="diff-tag-row">
-            <div class="tag tag-green">✓ Non-bannable</div>
-            <div class="tag tag-blue">🕹 Skill-based</div>
-            <div class="tag tag-orange">📅 Officiel en 0.30.5</div>
+          <div class="diff-row">
+            <span class="dr-label">DIFFICULTÉ</span>
+            <div class="dr-track">
+              <div class="dr-fill green" style="--w:55%"></div>
+              <div class="dr-dots">
+                <span class="dd green active"></span><span class="dd green active"></span>
+                <span class="dd green half"></span><span class="dd green"></span><span class="dd green"></span>
+              </div>
+            </div>
+            <span class="dr-val green">5/10</span>
           </div>
 
-          <div class="history-timeline">
-            <h4>Histoire</h4>
-            <div class="history-item">
-              <div class="hist-dot discovered"></div>
+          <div class="tags-row">
+            <span class="tag green">✓ NON-BANNABLE</span>
+            <span class="tag cyan">🕹 SKILL-BASED</span>
+            <span class="tag orange">OFFICIEL 0.30.5</span>
+          </div>
+
+          <div class="history-list">
+            <div class="hl-item">
+              <div class="hl-dot cyan"></div>
               <div>
-                <strong>Découverte communautaire</strong>
-                <p>Des skateurs repèrent qu'en enchaînant certains inputs sur un rail, deux tricks s'activent simultanément.</p>
+                <strong>DÉCOUVERTE</strong>
+                <p>Inputs rapides sur un rail déclenchent 2 tricks simultanément. Exploité par les top players.</p>
               </div>
             </div>
-            <div class="history-item">
-              <div class="hist-dot viral"></div>
+            <div class="hl-item">
+              <div class="hl-dot orange"></div>
               <div>
-                <strong>Viralité</strong>
-                <p>Les clips explosent — combos impossibles, style inédit. La communauté réclame que Full Circle garde ce comportement.</p>
+                <strong>VIRALITÉ</strong>
+                <p>Clips explosent sur les réseaux. Combos impossibles, style inédit. La communauté réclame le maintien.</p>
               </div>
             </div>
-            <div class="history-item">
-              <div class="hist-dot official"></div>
+            <div class="hl-item">
+              <div class="hl-dot green"></div>
               <div>
-                <strong>Décision Full Circle</strong>
-                <p>L'équipe annonce officillement qu'ils gardent les double grinds et les "codifient" proprement pour l'update 0.30.5.</p>
+                <strong>DÉCISION FULL CIRCLE</strong>
+                <p>L'équipe annonce qu'ils codifient proprement le comportement → Feature officielle en 0.30.5.</p>
               </div>
             </div>
           </div>
 
-          <div class="combo-box">
-            <span class="combo-label">Technique de base :</span>
-            <div class="combo-keys">
-              <kbd>R2</kbd><span>+</span><kbd>←</kbd>
-              <span class="combo-arrow">→ grind 1</span>
-              <span class="combo-arrow">→ immédiatement</span>
-              <kbd>R2</kbd><span>+</span><kbd>→</kbd>
-              <span class="combo-arrow">= DOUBLE</span>
+          <div class="combo-display green">
+            <span class="cd-title">TECHNIQUE</span>
+            <div class="cd-keys">
+              <kbd class="ps-r2">R2</kbd><span>+</span><kbd class="ps-dir">←</kbd>
+              <span class="cd-arr">→ grind 1 →</span>
+              <kbd class="ps-r2">R2</kbd><span>+</span><kbd class="ps-dir">→</kbd>
+              <span class="cd-arr green-text">= DOUBLE ⚡</span>
             </div>
           </div>
         </div>
 
-        <div class="card-visual">
-          <div class="diagram-title">Mécanique des Double Grinds</div>
-          <svg class="diagram" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="grd3" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#0d1b2a"/>
-                <stop offset="100%" style="stop-color:#1b2838"/>
-              </linearGradient>
-              <filter id="glow3">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <rect width="400" height="400" fill="url(#grd3)" rx="12"/>
+        <div class="gc-right">
+          <div class="diagram-label">SCHÉMA · MÉCANIQUE DOUBLE GRIND</div>
+          <div class="diagram-wrap">
+            <svg class="gc-svg" viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bgG3" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#040a08"/>
+                  <stop offset="100%" stop-color="#030806"/>
+                </linearGradient>
+                <filter id="green-glow">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <pattern id="grid3" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(45,198,83,0.05)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
 
-            <!-- RAIL -->
-            <rect x="40" y="200" width="320" height="10" rx="5" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+              <rect width="480" height="460" fill="url(#bgG3)" rx="12"/>
+              <rect width="480" height="460" fill="url(#grid3)" rx="12"/>
 
-            <!-- Normal grind label -->
-            <text x="40" y="190" fill="#9ca3af" font-size="11" font-family="Inter">RAIL</text>
+              <!-- RAIL — long metallic bar -->
+              <rect x="20" y="245" width="440" height="14" rx="7" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+              <rect x="20" y="245" width="440" height="4" rx="7" fill="rgba(156,163,175,0.2)"/>
+              <text x="20" y="238" fill="rgba(156,163,175,0.4)" font-size="9" font-family="Share Tech Mono">RAIL ──────────────────────────────────────────</text>
 
-            <!-- SINGLE GRIND SKATER -->
-            <g transform="translate(80, 175)">
-              <rect x="-20" y="18" width="40" height="7" rx="3" fill="#555"/>
-              <rect x="-14" y="10" width="28" height="12" rx="3" fill="#4a5568"/>
-              <circle cx="0" cy="2" r="8" fill="#4a5568"/>
-              <line x1="-15" y1="14" x2="15" y2="14" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
-              <line x1="-10" y1="22" x2="-14" y2="34" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
-              <line x1="10" y1="22" x2="14" y2="34" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
-              <text x="-28" y="55" fill="#4a5568" font-size="10" font-family="Inter">NORMAL</text>
-            </g>
+              <!-- COMPARISON: NORMAL vs DOUBLE -->
+              <!-- Normal section -->
+              <rect x="20" y="10" width="200" height="220" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <text x="38" y="34" fill="rgba(255,255,255,0.3)" font-size="11" font-family="Orbitron" font-weight="700">NORMAL</text>
+              <text x="38" y="48" fill="rgba(255,255,255,0.2)" font-size="8" font-family="Share Tech Mono">1 TRICK · 1 RAIL</text>
 
-            <!-- DOUBLE GRIND SKATER — highlighted -->
-            <g transform="translate(240, 165)" filter="url(#glow3)">
-              <!-- board with double trail -->
-              <rect x="-22" y="28" width="44" height="7" rx="3" fill="#f72585" stroke="#ff9f1c" stroke-width="1.5"/>
-              <rect x="-18" y="34" width="36" height="5" rx="2" fill="#f72585" opacity="0.4"/>
-              <!-- body -->
-              <rect x="-14" y="10" width="28" height="14" rx="3" fill="#f72585"/>
-              <!-- head -->
-              <circle cx="0" cy="2" r="8" fill="#f72585"/>
-              <!-- arms doing double trick -->
-              <line x1="-20" y1="14" x2="-30" y2="6" stroke="#f72585" stroke-width="4" stroke-linecap="round"/>
-              <line x1="20" y1="14" x2="30" y2="6" stroke="#f72585" stroke-width="4" stroke-linecap="round"/>
-              <!-- legs -->
-              <line x1="-8" y1="24" x2="-14" y2="38" stroke="#f72585" stroke-width="4" stroke-linecap="round"/>
-              <line x1="8" y1="24" x2="14" y2="38" stroke="#f72585" stroke-width="4" stroke-linecap="round"/>
-              <!-- DOUBLE indicator -->
-              <text x="-30" y="-12" fill="#ffd60a" font-size="13" font-family="Inter" font-weight="bold">×2</text>
-              <text x="-34" y="62" fill="#f72585" font-size="11" font-family="Inter" font-weight="bold">DOUBLE!</text>
-            </g>
+              <!-- Normal skater -->
+              <g transform="translate(120,145)">
+                <rect x="-22" y="95" width="44" height="9" rx="4" fill="#374151"/>
+                <rect x="-14" y="78" width="28" height="20" rx="3" fill="#4a5568"/>
+                <circle cx="0" cy="65" r="10" fill="#4a5568"/>
+                <line x1="-18" y1="83" x2="18" y2="83" stroke="#4a5568" stroke-width="5" stroke-linecap="round"/>
+                <line x1="-10" y1="98" x2="-14" y2="115" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
+                <line x1="10" y1="98" x2="14" y2="115" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
+                <!-- Score bubble -->
+                <rect x="-25" y="30" width="50" height="24" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <text x="-12" y="46" fill="#9ca3af" font-size="14" font-family="Orbitron">×1</text>
+              </g>
 
-            <!-- Speed particles for double -->
-            <circle cx="200" cy="195" r="3" fill="#f72585" opacity="0.8" filter="url(#glow3)"/>
-            <circle cx="215" cy="190" r="2" fill="#ff9f1c" opacity="0.6"/>
-            <circle cx="195" cy="205" r="2" fill="#f72585" opacity="0.5"/>
-            <circle cx="225" cy="200" r="3" fill="#ffd60a" opacity="0.7"/>
-            <circle cx="205" cy="185" r="2" fill="#f72585" opacity="0.4"/>
+              <!-- Input display normal -->
+              <rect x="30" y="165" width="80" height="50" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+              <text x="40" y="182" fill="#6b7280" font-size="9" font-family="Share Tech Mono">INPUT</text>
+              <text x="36" y="200" fill="white" font-size="12" font-family="Share Tech Mono">R2+←</text>
+              <text x="40" y="212" fill="#4b5563" font-size="8" font-family="Share Tech Mono">1 trick</text>
 
-            <!-- Arrow between them -->
-            <path d="M 130 185 Q 165 160 195 185" stroke="#2dc653" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
-            <polygon points="195,185 182,178 185,192" fill="#2dc653"/>
-            <text x="145" y="158" fill="#2dc653" font-size="10" font-family="Inter">input rapide</text>
+              <!-- VS divider -->
+              <line x1="240" y1="20" x2="240" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <circle cx="240" cy="120" r="18" fill="#0a0a14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <text x="231" y="125" fill="#6b7280" font-size="12" font-family="Orbitron">VS</text>
 
-            <!-- Version badge -->
-            <rect x="10" y="10" width="160" height="28" rx="6" fill="#1a3a1a" stroke="#2dc653" stroke-width="1.5"/>
-            <text x="18" y="29" fill="#2dc653" font-size="11" font-family="Inter" font-weight="600">✓ Officiel en update 0.30.5</text>
+              <!-- DOUBLE section -->
+              <rect x="260" y="10" width="200" height="220" rx="8" fill="rgba(45,198,83,0.04)" stroke="rgba(45,198,83,0.2)" stroke-width="1.5"/>
+              <text x="278" y="34" fill="#2dc653" font-size="11" font-family="Orbitron" font-weight="700" filter="url(#green-glow)">DOUBLE ⚡</text>
+              <text x="278" y="48" fill="rgba(45,198,83,0.5)" font-size="8" font-family="Share Tech Mono">2 TRICKS · MÊME RAIL</text>
 
-            <!-- Score multiplier visual -->
-            <rect x="230" y="10" width="155" height="50" rx="6" fill="#1a0a2e" stroke="#f72585" stroke-width="1"/>
-            <text x="240" y="28" fill="#f72585" font-size="10" font-family="Inter">Score multiplier</text>
-            <text x="240" y="50" fill="white" font-size="22" font-family="Bebas Neue" filter="url(#glow3)">×2.5X</text>
+              <!-- Double skater — glowing -->
+              <g transform="translate(360,145)" filter="url(#green-glow)">
+                <!-- board with double glow -->
+                <rect x="-24" y="95" width="48" height="9" rx="4" fill="#1a2e1a" stroke="#2dc653" stroke-width="2"/>
+                <rect x="-20" y="100" width="40" height="4" rx="2" fill="#2dc653" opacity="0.3"/>
+                <!-- body -->
+                <rect x="-14" y="74" width="28" height="24" rx="3" fill="#2dc653"/>
+                <!-- head -->
+                <circle cx="0" cy="62" r="10" fill="#2dc653"/>
+                <!-- visor -->
+                <rect x="-7" y="59" width="14" height="5" rx="2" fill="#0a0a14" opacity="0.8"/>
+                <rect x="-4" y="60" width="8" height="3" rx="1" fill="#00f5d4"/>
+                <!-- arms — both extended (double trick) -->
+                <line x1="-14" y1="80" x2="-28" y2="68" stroke="#2dc653" stroke-width="5" stroke-linecap="round"/>
+                <line x1="14" y1="80" x2="28" y2="68" stroke="#2dc653" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="-28" cy="68" r="5" fill="#00f5d4"/>
+                <circle cx="28" cy="68" r="5" fill="#00f5d4"/>
+                <!-- legs -->
+                <line x1="-8" y1="98" x2="-14" y2="114" stroke="#2dc653" stroke-width="4" stroke-linecap="round"/>
+                <line x1="8" y1="98" x2="14" y2="114" stroke="#2dc653" stroke-width="4" stroke-linecap="round"/>
+                <!-- Score bubble — ×2 -->
+                <rect x="-28" y="28" width="56" height="26" rx="4" fill="rgba(45,198,83,0.12)" stroke="#2dc653" stroke-width="1.5"/>
+                <text x="-16" y="46" fill="#2dc653" font-size="18" font-family="Orbitron" font-weight="700">×2</text>
+                <!-- Particle sparks -->
+                <circle cx="-35" cy="90" r="3" fill="#2dc653" opacity="0.7"/>
+                <circle cx="38" cy="85" r="2" fill="#00f5d4" opacity="0.8"/>
+                <circle cx="-30" cy="72" r="2" fill="#2dc653" opacity="0.5"/>
+                <circle cx="32" cy="75" r="3" fill="#00f5d4" opacity="0.6"/>
+                <circle cx="0" cy="55" r="2" fill="#2dc653" opacity="0.9"/>
+              </g>
 
-            <!-- BOTTOM COMPARISON -->
-            <rect x="20" y="310" width="170" height="70" rx="8" fill="#1a1a2e" stroke="#4a5568" stroke-width="1"/>
-            <text x="30" y="330" fill="#9ca3af" font-size="11" font-family="Inter" font-weight="600">Grind Normal</text>
-            <text x="30" y="350" fill="white" font-size="11" font-family="Inter">1 trick = 1 score</text>
-            <text x="30" y="368" fill="#4a5568" font-size="10" font-family="Inter">Comportement standard</text>
+              <!-- Input display double -->
+              <rect x="270" y="158" width="110" height="64" rx="5" fill="rgba(45,198,83,0.05)" stroke="rgba(45,198,83,0.2)" stroke-width="1"/>
+              <text x="280" y="175" fill="#2dc653" font-size="9" font-family="Share Tech Mono">DOUBLE INPUT</text>
+              <text x="278" y="195" fill="white" font-size="11" font-family="Share Tech Mono">R2+←  →  R2+→</text>
+              <text x="282" y="213" fill="rgba(45,198,83,0.7)" font-size="8" font-family="Share Tech Mono">input immédiat</text>
 
-            <rect x="210" y="310" width="175" height="70" rx="8" fill="#1a0020" stroke="#f72585" stroke-width="1.5"/>
-            <text x="220" y="330" fill="#f72585" font-size="11" font-family="Inter" font-weight="600">Double Grind ⚡</text>
-            <text x="220" y="350" fill="white" font-size="11" font-family="Inter">2 tricks = score ×2+</text>
-            <text x="220" y="368" fill="#f72585" font-size="10" font-family="Inter">Style + multiplicateur</text>
-          </svg>
+              <!-- Rail activation zones -->
+              <rect x="70" y="243" width="140" height="18" rx="0" fill="rgba(100,100,120,0.2)"/>
+              <text x="100" y="256" fill="#6b7280" font-size="9" font-family="Share Tech Mono">ZONE 1x</text>
+
+              <rect x="270" y="243" width="160" height="18" rx="0" fill="rgba(45,198,83,0.1)" filter="url(#green-glow)"/>
+              <text x="305" y="256" fill="#2dc653" font-size="9" font-family="Share Tech Mono">ZONE 2x ⚡</text>
+
+              <!-- Score comparison bottom -->
+              <g transform="translate(0, 285)">
+                <rect x="20" y="0" width="200" height="60" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <text x="35" y="20" fill="#6b7280" font-size="10" font-family="Orbitron">SCORE NORMAL</text>
+                <rect x="35" y="28" width="120" height="8" rx="4" fill="rgba(255,255,255,0.05)"/>
+                <rect x="35" y="28" width="80" height="8" rx="4" fill="#4a5568"/>
+                <text x="35" y="50" fill="#6b7280" font-size="10" font-family="Share Tech Mono">base score</text>
+
+                <rect x="260" y="0" width="200" height="60" rx="8" fill="rgba(45,198,83,0.05)" stroke="rgba(45,198,83,0.2)" stroke-width="1"/>
+                <text x="275" y="20" fill="#2dc653" font-size="10" font-family="Orbitron" filter="url(#green-glow)">SCORE DOUBLE ×2</text>
+                <rect x="275" y="28" width="120" height="8" rx="4" fill="rgba(45,198,83,0.1)"/>
+                <rect x="275" y="28" width="120" height="8" rx="4" fill="#2dc653" filter="url(#green-glow)"/>
+                <text x="275" y="50" fill="#2dc653" font-size="10" font-family="Share Tech Mono">score ×2.5+</text>
+              </g>
+
+              <!-- Official badge -->
+              <rect x="12" y="370" width="456" height="78" rx="5" fill="rgba(0,0,0,0.5)" stroke="rgba(45,198,83,0.25)" stroke-width="1"/>
+              <text x="20" y="392" fill="#2dc653" font-size="11" font-family="Share Tech Mono" font-weight="bold">✓  DÉCISION FULL CIRCLE — FEATURE OFFICIELLE</text>
+              <text x="20" y="408" fill="rgba(45,198,83,0.5)" font-size="9" font-family="Share Tech Mono">"La communauté adore les double grinds, on les garde et on les code proprement."</text>
+              <text x="20" y="424" fill="rgba(45,198,83,0.5)" font-size="9" font-family="Share Tech Mono">— Full Circle · Intégration prévue update 0.30.5</text>
+              <rect x="380" y="385" width="78" height="22" rx="4" fill="rgba(45,198,83,0.15)" stroke="#2dc653" stroke-width="1"/>
+              <text x="392" y="400" fill="#2dc653" font-size="10" font-family="Orbitron" font-weight="700">v0.30.5</text>
+            </svg>
+          </div>
         </div>
       </div>
-    </article>
+    </div>
   </section>
 
-  <!-- AI ASSISTANT SECTION -->
+  <!-- ===================== AI ASSISTANT ===================== -->
   <section id="ai-assistant">
     <div class="section-header">
-      <span class="section-tag">IA</span>
-      <h2>Assistant IA Glitch</h2>
-      <p>Pose n'importe quelle question sur les glitchs — l'IA t'explique en détail</p>
+      <div class="sh-line"></div>
+      <div class="sh-text">
+        <span class="sh-tag">/ / ASSISTANT</span>
+        <h2>IA GLITCH</h2>
+        <p>Pose n'importe quelle question — réponse instantanée</p>
+      </div>
+      <div class="sh-line"></div>
     </div>
 
-    <div class="ai-container">
-      <div class="ai-chat-area" id="chat-area">
-        <div class="ai-message bot-message">
-          <div class="bot-avatar">🤖</div>
-          <div class="msg-bubble">
-            <p>Salut skater ! Je suis ton assistant glitch pour <strong>skate.</strong> 🛹</p>
-            <p>Je connais tous les exploits et bugs du jeu. Demande-moi n'importe quoi :</p>
-            <div class="quick-btns">
-              <button class="quick-btn" onclick="askQuestion('Comment faire le Spread Eagle le plus vite possible ?')">⚡ Spread Eagle</button>
-              <button class="quick-btn" onclick="askQuestion('Explique le Launch Glitch au Scaffold')">🚀 Scaffold Launch</button>
-              <button class="quick-btn" onclick="askQuestion('Pourquoi les double grinds ont-ils été gardés ?')">🔀 Double Grinds</button>
-              <button class="quick-btn" onclick="askQuestion('Quels sont les bugs de la saison 4 ?')">🐛 Bugs S4</button>
-              <button class="quick-btn" onclick="askQuestion('Quelle différence avec Skate 3 pour le speed glitch ?')">🆚 vs Skate 3</button>
+    <div class="ai-wrap">
+      <!-- Terminal header -->
+      <div class="ai-terminal">
+        <div class="at-header">
+          <div class="at-dots">
+            <span class="atd red"></span>
+            <span class="atd orange"></span>
+            <span class="atd green"></span>
+          </div>
+          <span class="at-title">SKATE_GLITCH_AI · v2.0 · LOCAL</span>
+          <span class="at-status">
+            <span class="status-dot"></span>
+            ONLINE
+          </span>
+        </div>
+
+        <div class="at-body" id="chat-area">
+          <div class="ai-msg bot">
+            <div class="aim-avatar">
+              <svg viewBox="0 0 32 32" width="32" height="32">
+                <rect width="32" height="32" rx="6" fill="rgba(230,57,70,0.15)" stroke="rgba(230,57,70,0.4)" stroke-width="1"/>
+                <rect x="8" y="8" width="16" height="12" rx="2" fill="none" stroke="#e63946" stroke-width="1.5"/>
+                <circle cx="12" cy="14" r="2" fill="#e63946"/>
+                <circle cx="20" cy="14" r="2" fill="#e63946"/>
+                <line x1="10" y1="24" x2="14" y2="20" stroke="#e63946" stroke-width="1.5"/>
+                <line x1="22" y1="24" x2="18" y2="20" stroke="#e63946" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="aim-content">
+              <div class="aim-name">GLITCH_AI</div>
+              <div class="aim-text">
+                <p>Système initialisé. Je connais tous les exploits de <strong>skate.</strong> — pose ta question.</p>
+                <div class="quick-grid">
+                  <button onclick="askQ('Comment faire le Spread Eagle ?')">⚡ Spread Eagle</button>
+                  <button onclick="askQ('Explique le Scaffold Launch')">🚀 Scaffold Launch</button>
+                  <button onclick="askQ('Pourquoi les double grinds sont gardés ?')">🔀 Double Grinds</button>
+                  <button onclick="askQ('Bugs de la saison 4')">🐛 Bugs S4</button>
+                  <button onclick="askQ('Différence avec Skate 3 ?')">🆚 vs Skate 3</button>
+                  <button onclick="askQ('Conseils pour débuter')">💡 Débuter</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="at-input-row">
+          <span class="at-prompt">&gt;_</span>
+          <input id="ai-input" type="text" placeholder="Tape ta question ici..." onkeypress="if(event.key==='Enter')sendMsg()"/>
+          <button class="at-send" onclick="sendMsg()">SEND ↵</button>
+        </div>
+        <div class="at-footer">LOCAL KB · NO INTERNET REQUIRED · SKATE. SEASON 4</div>
       </div>
-      <div class="ai-input-area">
-        <input type="text" id="ai-input" placeholder="Pose ta question sur les glitchs..." onkeypress="handleEnter(event)" />
-        <button class="ai-send-btn" onclick="sendMessage()">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
-      </div>
-      <p class="ai-disclaimer">⚠ IA locale basée sur la base de connaissance du site — pas de connexion internet requise.</p>
     </div>
   </section>
 
-  <!-- BUGS SECTION -->
+  <!-- ===================== BUGS ===================== -->
   <section id="bugs">
     <div class="section-header">
-      <span class="section-tag">🐛 BUGS</span>
-      <h2>Bugs Saison 4</h2>
-      <p>Bugs toujours présents — statuts et workarounds</p>
+      <div class="sh-line"></div>
+      <div class="sh-text">
+        <span class="sh-tag">/ / BUGS</span>
+        <h2>BUGS SAISON 4</h2>
+        <p>Bugs actifs — statuts & workarounds</p>
+      </div>
+      <div class="sh-line"></div>
     </div>
 
     <div class="bugs-grid">
+
       <div class="bug-card">
-        <div class="bug-header">
-          <span class="bug-icon">🧍</span>
-          <div>
+        <div class="bc-top">
+          <div class="bc-icon">🧍</div>
+          <div class="bc-meta">
             <h4>Player Model Glitch</h4>
-            <div class="bug-status active">● Actif</div>
+            <div class="bc-status red">● ACTIF</div>
           </div>
+          <div class="bc-platforms"><span>PS4</span><span>PS5</span></div>
         </div>
-        <p>Le modèle du joueur glitche visuellement en stance <strong>Switch</strong> et <strong>Fakie</strong>.
-        Le personnage peut apparaître déformé, avec des membres dans de mauvaises positions.</p>
-        <div class="bug-platform"><span>PS4</span><span>PS5</span></div>
-        <div class="bug-fix">
-          <strong>Workaround :</strong> Aucun fix définitif. Switcher rapidement entre les stances peut parfois
-          résoudre temporairement l'affichage.
-        </div>
-        <svg class="bug-diagram" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-          <rect width="280" height="120" fill="#0f0f1a" rx="8"/>
-          <!-- Normal stance -->
-          <g transform="translate(60,20)">
-            <circle cx="0" cy="10" r="10" fill="#2dc653"/>
-            <rect x="-8" y="20" width="16" height="25" rx="3" fill="#2dc653"/>
-            <line x1="-15" y1="28" x2="15" y2="28" stroke="#2dc653" stroke-width="4" stroke-linecap="round"/>
-            <line x1="-8" y1="45" x2="-12" y2="60" stroke="#2dc653" stroke-width="4" stroke-linecap="round"/>
-            <line x1="8" y1="45" x2="12" y2="60" stroke="#2dc653" stroke-width="4" stroke-linecap="round"/>
-            <rect x="-18" y="60" width="36" height="6" rx="3" fill="#555"/>
-            <text x="-22" y="84" fill="#2dc653" font-size="9" font-family="Inter">NORMAL</text>
+        <p>Le modèle du joueur se déforme en stance <strong>Switch</strong> et <strong>Fakie</strong>. Bug purement visuel — le gameplay n'est pas affecté.</p>
+        <svg class="bug-svg" viewBox="0 0 300 130">
+          <defs>
+            <filter id="err-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="300" height="130" fill="#080810" rx="8"/>
+          <!-- Normal -->
+          <text x="60" y="20" fill="#2dc653" font-size="10" font-family="Share Tech Mono" text-anchor="middle">NORMAL</text>
+          <g transform="translate(60,35)">
+            <circle cx="0" cy="0" r="10" fill="#2dc653" opacity="0.8"/>
+            <rect x="-7" y="10" width="14" height="20" rx="2" fill="#2dc653" opacity="0.8"/>
+            <line x1="-14" y1="16" x2="14" y2="16" stroke="#2dc653" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <line x1="-6" y1="30" x2="-9" y2="46" stroke="#2dc653" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <line x1="6" y1="30" x2="9" y2="46" stroke="#2dc653" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <rect x="-16" y="46" width="32" height="7" rx="3" fill="#374151"/>
           </g>
           <!-- Arrow -->
-          <text x="115" y="60" fill="#aaa" font-size="18">→</text>
-          <!-- Glitched stance -->
-          <g transform="translate(190,20)">
-            <circle cx="0" cy="10" r="10" fill="#e63946"/>
-            <rect x="-8" y="20" width="16" height="25" rx="3" fill="#e63946" transform="rotate(15,0,32)"/>
-            <line x1="-15" y1="22" x2="20" y2="35" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
-            <line x1="-5" y1="45" x2="-18" y2="55" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
-            <line x1="8" y1="48" x2="20" y2="40" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
-            <rect x="-15" y="58" width="36" height="6" rx="3" fill="#555" transform="rotate(-10,3,61)"/>
-            <text x="-22" y="84" fill="#e63946" font-size="9" font-family="Inter">SWITCH/FAKIE</text>
+          <text x="130" y="70" fill="#6b7280" font-size="20" text-anchor="middle">⇢</text>
+          <!-- Switch glitched -->
+          <text x="220" y="20" fill="#e63946" font-size="10" font-family="Share Tech Mono" text-anchor="middle">SWITCH/FAKIE</text>
+          <g transform="translate(220,35)" filter="url(#err-glow)">
+            <circle cx="0" cy="0" r="10" fill="#e63946" opacity="0.9"/>
+            <rect x="-7" y="10" width="14" height="20" rx="2" fill="#e63946" opacity="0.9" transform="rotate(20 0 20)"/>
+            <line x1="-14" y1="12" x2="18" y2="24" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
+            <line x1="-4" y1="30" x2="-18" y2="42" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
+            <line x1="6" y1="32" x2="20" y2="24" stroke="#e63946" stroke-width="4" stroke-linecap="round"/>
+            <rect x="-14" y="50" width="32" height="7" rx="3" fill="#374151" transform="rotate(-12 2 54)"/>
+            <!-- glitch lines -->
+            <line x1="-20" y1="5" x2="20" y2="5" stroke="#ff000040" stroke-width="3"/>
+            <line x1="-18" y1="18" x2="22" y2="18" stroke="#ff000030" stroke-width="2"/>
           </g>
-          <text x="10" y="110" fill="#666" font-size="9" font-family="Inter">Bug visuel uniquement — gameplay non affecté</text>
+          <text x="150" y="112" fill="#6b7280" font-size="9" font-family="Share Tech Mono" text-anchor="middle">BUG VISUEL UNIQUEMENT — GAMEPLAY NON AFFECTÉ</text>
         </svg>
+        <div class="bc-fix">
+          <span class="bcf-label">WORKAROUND</span>
+          <p>Aucun fix permanent. Switch rapidement de stance pour reset l'affichage temporairement.</p>
+        </div>
       </div>
 
       <div class="bug-card">
-        <div class="bug-header">
-          <span class="bug-icon">🚗</span>
-          <div>
+        <div class="bc-top">
+          <div class="bc-icon">🚗</div>
+          <div class="bc-meta">
             <h4>Voitures Invisibles</h4>
-            <div class="bug-status active">● Actif</div>
+            <div class="bc-status orange">● ACTIF</div>
           </div>
+          <div class="bc-platforms"><span>PS4</span><span>PS5</span></div>
         </div>
-        <p>Après avoir toggleé le setting <strong>"World Traffic"</strong>, certaines voitures deviennent
-        complètement invisibles mais continuent d'interagir avec les objets et le joueur.</p>
-        <div class="bug-platform"><span>PS4</span><span>PS5</span></div>
-        <div class="bug-fix">
-          <strong>Workaround :</strong> Redémarre la session ou toggle le setting "World Traffic" deux fois de suite pour forcer le rechargement.
-        </div>
-        <svg class="bug-diagram" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-          <rect width="280" height="120" fill="#0f0f1a" rx="8"/>
+        <p>Toggle <strong>"World Traffic"</strong> → certaines voitures disparaissent visuellement mais gardent leur hitbox et leur comportement physique.</p>
+        <svg class="bug-svg" viewBox="0 0 300 130">
+          <rect width="300" height="130" fill="#080810" rx="8"/>
           <!-- Road -->
-          <rect x="0" y="70" width="280" height="35" fill="#1a1a2e"/>
-          <line x1="0" y1="87" x2="280" y2="87" stroke="#444" stroke-width="1" stroke-dasharray="20,10"/>
+          <rect x="0" y="75" width="300" height="40" fill="#0d0d18"/>
+          <line x1="0" y1="95" x2="300" y2="95" stroke="#2d2d40" stroke-width="1" stroke-dasharray="20,12"/>
           <!-- Normal car -->
-          <g transform="translate(50,40)">
-            <rect x="-25" y="10" width="50" height="22" rx="5" fill="#3a5a8c"/>
-            <rect x="-18" y="2" width="36" height="12" rx="3" fill="#4a7aac"/>
-            <circle cx="-15" cy="32" r="7" fill="#222" stroke="#555" stroke-width="2"/>
-            <circle cx="15" cy="32" r="7" fill="#222" stroke="#555" stroke-width="2"/>
-            <text x="-18" y="52" fill="#3a5a8c" font-size="9" font-family="Inter">VISIBLE</text>
+          <text x="75" y="18" fill="#9ca3af" font-size="10" font-family="Share Tech Mono" text-anchor="middle">NORMAL</text>
+          <g transform="translate(75,50)">
+            <rect x="-28" y="6" width="56" height="22" rx="6" fill="#1e3a5f"/>
+            <rect x="-20" y="-4" width="40" height="12" rx="3" fill="#2a4f80"/>
+            <rect x="-16" y="-2" width="14" height="8" rx="1" fill="#1a3a60" stroke="#60a5fa" stroke-width="0.5"/>
+            <rect x="2" y="-2" width="14" height="8" rx="1" fill="#1a3a60" stroke="#60a5fa" stroke-width="0.5"/>
+            <circle cx="-18" cy="28" r="7" fill="#111" stroke="#374151" stroke-width="2"/>
+            <circle cx="18" cy="28" r="7" fill="#111" stroke="#374151" stroke-width="2"/>
           </g>
-          <!-- Arrow -->
-          <text x="115" y="60" fill="#aaa" font-size="18">→</text>
-          <!-- Invisible car (ghost) -->
-          <g transform="translate(200,40)">
-            <rect x="-25" y="10" width="50" height="22" rx="5" fill="#3a5a8c" opacity="0.08" stroke="#e63946" stroke-width="1" stroke-dasharray="4,2"/>
-            <rect x="-18" y="2" width="36" height="12" rx="3" fill="#4a7aac" opacity="0.05"/>
-            <circle cx="-15" cy="32" r="7" fill="#222" opacity="0.1" stroke="#e63946" stroke-width="1" stroke-dasharray="3,2"/>
-            <circle cx="15" cy="32" r="7" fill="#222" opacity="0.1" stroke="#e63946" stroke-width="1" stroke-dasharray="3,2"/>
-            <text x="5" y="20" fill="#e63946" font-size="16">?</text>
-            <text x="-22" y="52" fill="#e63946" font-size="9" font-family="Inter">INVISIBLE!</text>
+          <!-- Toggle arrow -->
+          <rect x="120" y="52" width="60" height="24" rx="4" fill="#1a1a2e" stroke="rgba(255,159,28,0.4)" stroke-width="1"/>
+          <text x="150" y="68" fill="#ff9f1c" font-size="9" font-family="Share Tech Mono" text-anchor="middle">TOGGLE</text>
+          <!-- Ghost car -->
+          <text x="225" y="18" fill="#e63946" font-size="10" font-family="Share Tech Mono" text-anchor="middle">INVISIBLE !</text>
+          <g transform="translate(225,50)">
+            <rect x="-28" y="6" width="56" height="22" rx="6" fill="#1e3a5f" opacity="0.05" stroke="#e63946" stroke-width="1" stroke-dasharray="4,3"/>
+            <rect x="-20" y="-4" width="40" height="12" rx="3" fill="#2a4f80" opacity="0.04"/>
+            <circle cx="-18" cy="28" r="7" fill="#111" opacity="0.08" stroke="#e63946" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="18" cy="28" r="7" fill="#111" opacity="0.08" stroke="#e63946" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="-6" y="16" fill="#e63946" font-size="16" opacity="0.9">?</text>
           </g>
-          <text x="140" y="68" fill="#e63946" font-size="10">⚠ Collision active</text>
-          <text x="10" y="110" fill="#666" font-size="9" font-family="Inter">Toggle World Traffic → certains véhicules disparaissent visuellement</text>
+          <text x="150" y="118" fill="#e63946" font-size="9" font-family="Share Tech Mono" text-anchor="middle">⚠ COLLISION TOUJOURS ACTIVE</text>
         </svg>
+        <div class="bc-fix">
+          <span class="bcf-label">WORKAROUND</span>
+          <p>Toggle "World Traffic" deux fois de suite → force le rechargement des assets visuels.</p>
+        </div>
       </div>
 
       <div class="bug-card">
-        <div class="bug-header">
-          <span class="bug-icon">⬛</span>
-          <div>
-            <h4>Écran Noir au Challenge</h4>
-            <div class="bug-status active-ps4">● PS4 Only</div>
+        <div class="bc-top">
+          <div class="bc-icon">⬛</div>
+          <div class="bc-meta">
+            <h4>Écran Noir Challenge</h4>
+            <div class="bc-status orange">● PS4 ONLY</div>
           </div>
+          <div class="bc-platforms ps4only"><span>PS4</span></div>
         </div>
-        <p>Sur <strong>PS4</strong> uniquement, un écran noir peut apparaître au lancement d'un challenge.
-        Le jeu freeze complètement et ne répond plus.</p>
-        <div class="bug-platform"><span>PS4</span></div>
-        <div class="bug-fix">
-          <strong>Workaround :</strong> Reboot complet du jeu requis. Appuyer sur le bouton PS → Quitter le jeu → Relancer.
-          Il n'y a pas de fix d'autres inputs connus à ce jour.
-        </div>
-        <svg class="bug-diagram" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-          <rect width="280" height="120" fill="#0f0f1a" rx="8"/>
-          <!-- PS4 screen -->
-          <rect x="30" y="15" width="100" height="70" rx="5" fill="#111" stroke="#4a5568" stroke-width="2"/>
-          <text x="55" y="45" fill="#4a5568" font-size="9" font-family="Inter">CHALLENGE</text>
-          <text x="60" y="60" fill="#2dc653" font-size="11" font-family="Inter">START ▶</text>
+        <p>Au lancement d'un challenge sur <strong>PS4</strong>, écran noir complet. Le jeu freeze — aucune interaction possible.</p>
+        <svg class="bug-svg" viewBox="0 0 300 130">
+          <rect width="300" height="130" fill="#080810" rx="8"/>
+          <!-- Screen normal -->
+          <rect x="20" y="20" width="110" height="76" rx="6" fill="#0d0d18" stroke="#374151" stroke-width="2"/>
+          <text x="75" y="52" fill="#4a5568" font-size="9" font-family="Share Tech Mono" text-anchor="middle">LANCER</text>
+          <text x="75" y="65" fill="#2dc653" font-size="12" font-family="Orbitron" text-anchor="middle">CHALLENGE</text>
+          <rect x="50" y="72" width="50" height="14" rx="3" fill="#2dc653" opacity="0.8"/>
+          <text x="75" y="83" fill="#000" font-size="9" font-family="Orbitron" text-anchor="middle">START ▶</text>
           <!-- Arrow -->
-          <text x="138" y="55" fill="#aaa" font-size="18">→</text>
+          <text x="148" y="62" fill="#6b7280" font-size="20" text-anchor="middle">⇢</text>
           <!-- Black screen -->
-          <rect x="160" y="15" width="100" height="70" rx="5" fill="#000" stroke="#e63946" stroke-width="2"/>
-          <text x="185" y="55" fill="#e63946" font-size="28">■</text>
-          <!-- PS button -->
-          <circle cx="55" cy="100" r="12" fill="#003791" stroke="#0070d1" stroke-width="2"/>
-          <circle cx="55" cy="100" r="6" fill="#0070d1"/>
-          <text x="74" y="104" fill="#aaa" font-size="9" font-family="Inter">→ Quitter → Relancer</text>
+          <rect x="170" y="20" width="110" height="76" rx="6" fill="#000" stroke="#e63946" stroke-width="2"/>
+          <rect x="178" y="42" width="94" height="4" rx="1" fill="#e63946" opacity="0.3"/>
+          <rect x="178" y="50" width="60" height="4" rx="1" fill="#e63946" opacity="0.2"/>
+          <text x="225" y="72" fill="#e63946" font-size="20" text-anchor="middle">■</text>
+          <!-- PS button instruction -->
+          <circle cx="80" cy="118" r="11" fill="#003087" stroke="#0070d1" stroke-width="1.5"/>
+          <circle cx="80" cy="118" r="6" fill="#0070d1"/>
+          <text x="96" y="122" fill="#6b7280" font-size="9" font-family="Share Tech Mono">→ QUITTER → RELANCER</text>
         </svg>
+        <div class="bc-fix">
+          <span class="bcf-label">WORKAROUND</span>
+          <p>Seul le reboot complet fonctionne : bouton PS → Quitter le jeu → Relancer.</p>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- GLOSSAIRE -->
+  <!-- ===================== GLOSSAIRE ===================== -->
   <section id="glossaire">
     <div class="section-header">
-      <span class="section-tag">📖</span>
-      <h2>Glossaire</h2>
-      <p>Tous les termes techniques expliqués</p>
+      <div class="sh-line"></div>
+      <div class="sh-text">
+        <span class="sh-tag">/ / RÉFÉRENCE</span>
+        <h2>GLOSSAIRE</h2>
+        <p>Tous les termes techniques expliqués</p>
+      </div>
+      <div class="sh-line"></div>
     </div>
 
-    <div class="glossaire-grid">
-      <div class="gloss-item">
-        <h4>Hippy Jump</h4>
-        <p>Trick où le rider saute par-dessus un obstacle pendant que le board passe en dessous.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Spread Eagle</h4>
-        <p>Pose aérienne où les bras et jambes sont écartés en forme d'X. Dans skate., c'est le trigger du speed glitch.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Switch</h4>
-        <p>Rider qui skate dans l'orientation opposée à sa stance naturelle (regular ↔ goofy).</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Fakie</h4>
-        <p>Rider qui roule en arrière dans sa stance naturelle — différent du switch.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>No Foot Air</h4>
-        <p>Trick aérien où le rider lâche le board avec les deux pieds. Dans skate., c'est ce qui se passe si tu fais le Spread Eagle SUR le board.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Manual Pod</h4>
-        <p>Objet placeable dans skate. qui permet de faire des manuels. Élément clé du Scaffold Launch Glitch.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Scaffold</h4>
-        <p>Structure placeable dans le créateur de spots. Utilisé comme rampe de lancement dans le Launch Glitch.</p>
-      </div>
-      <div class="gloss-item">
-        <h4>Double Grind</h4>
-        <p>Enchaînement de deux tricks de grind en succession ultra-rapide sur un même rail. Glitch devenu feature.</p>
-      </div>
+    <div class="gloss-grid">
+      <div class="gi"><span class="gi-key">Hippy Jump</span><p>Trick où le rider saute par-dessus un obstacle pendant que le board passe en dessous — base du Spread Eagle glitch.</p></div>
+      <div class="gi"><span class="gi-key">Spread Eagle</span><p>Pose aérienne bras+jambes écartés en X, hors du board. Trigger du speed glitch dans skate.</p></div>
+      <div class="gi"><span class="gi-key">Switch</span><p>Rider qui skate dans l'orientation opposée à sa stance naturelle (regular ↔ goofy).</p></div>
+      <div class="gi"><span class="gi-key">Fakie</span><p>Rider qui roule en arrière dans sa stance naturelle — différent du switch.</p></div>
+      <div class="gi"><span class="gi-key">No Foot Air</span><p>Trick aérien où le rider lâche le board. Résultat si le Spread Eagle est fait SUR le board.</p></div>
+      <div class="gi"><span class="gi-key">Manual Pod</span><p>Objet placeable permettant les manuels. Composant clé du Scaffold Launch Glitch.</p></div>
+      <div class="gi"><span class="gi-key">Scaffold</span><p>Structure placeable dans le créateur de spots. Sert de rampe dans le Launch Glitch.</p></div>
+      <div class="gi"><span class="gi-key">Double Grind</span><p>2 tricks de grind en succession ultra-rapide sur un même rail. Glitch devenu feature officielle.</p></div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
+    <div class="footer-corners">
+      <div class="fc tl"></div><div class="fc tr"></div>
+      <div class="fc bl"></div><div class="fc br"></div>
+    </div>
     <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-sk">SK</span><span class="logo-dot">.</span>
-        <span class="logo-sub">GLITCH HUB</span>
-      </div>
-      <p>Site communautaire non-officiel · Skate. est une marque d'EA / Full Circle</p>
-      <p>Dernière mise à jour : Version 0.30.x · Saison 4</p>
+      <div class="fi-logo">SK<span>.</span> GLITCH HUB</div>
+      <div class="fi-sep"></div>
+      <p>Site communautaire non-officiel · skate. est une marque EA / Full Circle Games</p>
+      <p>Version 0.30.x · Saison 4 · PlayStation</p>
     </div>
   </footer>
 
